@@ -1,4 +1,5 @@
-                                    ### Ps2_USB Teensy 2.0++ Mod. 
+### Ps2_USB Teensy 2.0++ Mod. 
+
 ### Requirements 
 ```markdown
 - A PJRC Teensy 2.0++ with 3.3v Regulator
@@ -31,8 +32,11 @@ Controller -------> Teensy
 
 - Cp Ps2x_lib in library folder
 - Tools -> Board -> Teensy 2++
+
            Port -> Hid: xxx
+
            Cpu Speed -> 8 to 16
+
            Usb type -> Keyboard + mouse + joystick
            
 - Run the PS2_USB.ino 
