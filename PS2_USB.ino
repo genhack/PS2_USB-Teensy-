@@ -13,34 +13,46 @@
  * , a copy of which is located in the included LICENSE file.                  *
  *                                 Enjoy!                                      *
  *-----------------------------------------------------------------------------*
- *                       https://github.com/PS2_USB-Teensy-                     *
+ *                       https://github.com/PS2_USB-Teensy2                    *
  ******************************************************************************/
 
 #include <PS2X_lib.h>
+
+#define PS2_DAT        23      
+#define PS2_CMD        22  
+#define PS2_CLK        21  
+#define PS2_SEL        20  
+#define pressures   false
+#define rumble      false
+#define led            6
+
+
 PS2X controller;
 int error = 0;
 byte type = 0;
 boolean config = false;
 
+
 void setup(){
-  error = controller.config_gamepad(0,1,2,3, false, false); // setup controller, config_gamepad(clock, command, attention, data, Pressures?, Rumble?); rumble and pressures currently unsupported
-  Serial.begin(57600);
+
+  delay(300);
+  //Serial.begin(57600); 
+  error = controller.config_gamepad(PS2_CLK, PS2_CMD, PS2_SEL, PS2_DAT, pressures, rumble); 
 }
 
 void loop(){
   if(error == 1){ // flash led if there's an error
-    digitalWrite(6,HIGH); 
+    digitalWrite(led,HIGH); 
     delay(500);
-    digitalWrite(6,LOW); 
+    digitalWrite(led,LOW); 
     delay(500);
-    error = controller.config_gamepad(0,1,2,3, false, false); // Try to setup the controller again
-    Serial.println("No controller found, check wiring, see readme.txt.");
+    error = controller.config_gamepad(PS2_CLK, PS2_CMD, PS2_SEL, PS2_DAT, pressures, rumble); // Try to setup the controller again
+    //Serial.println("No controller founds");
   }
   else if (!config) { // turn on the LED and get controller type if all's well
-    digitalWrite(11,HIGH); 
+    digitalWrite(led,HIGH); 
     type = controller.readType();
     config = true;
-    Serial.println("Controller found.");
   }
   controller.read_gamepad(); //read the controller
   // testing out sending the usb packet spontaneously, should reduce lag a bit
@@ -143,4 +155,3 @@ void loop(){
     Joystick.send_now();
   }
 }
-
