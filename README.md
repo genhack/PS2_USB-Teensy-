@@ -1,4 +1,4 @@
-                                                  ### Ps2_USB Teensy 2.0++ Mod. 
+                                    ### Ps2_USB Teensy 2.0++ Mod. 
 ### Requirements 
 ```markdown
 - A PJRC Teensy 2.0++ with 3.3v Regulator
