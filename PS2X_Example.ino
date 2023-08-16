@@ -6,10 +6,10 @@
  *   - 2e colmun: Stef?
  * replace pin numbers by the ones you use
  ******************************************************************/
-#define PS2_DAT        23  //14    
-#define PS2_CMD        22  //15
-#define PS2_CLK        21  //17
-#define PS2_SEL        20  //16
+#define PS2_DAT        23      
+#define PS2_CMD        22  
+#define PS2_CLK        21  
+#define PS2_SEL        20  
 
 /******************************************************************
  * select modes of PS2 controller:
