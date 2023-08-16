@@ -31,7 +31,9 @@ Controller -------> Teensy
 ### Software
 
 - Cp Ps2x_lib in library folder
-- Tools -> Board -> Teensy 2++
+- Tools -> 
+           
+           Board -> Teensy 2++
 
            Port -> Hid: xxx
 
