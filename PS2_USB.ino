@@ -13,7 +13,7 @@
  * , a copy of which is located in the included LICENSE file.                  *
  *                                 Enjoy!                                      *
  *-----------------------------------------------------------------------------*
- *                       https://github.com/S2_USB-Teensy-                     *
+ *                       https://github.com/PS2_USB-Teensy-                     *
  ******************************************************************************/
 
 #include <PS2X_lib.h>
