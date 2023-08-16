@@ -2,16 +2,18 @@
  *                                 PS2-USB                                     *
  *=============================================================================*
  *                             By: Duncan Murdock                              *
- *                             Date: 1/20/2012                                 *
- *                             Version: 4                                      *
+ *                             Rework for Teensy ++                            *
+ *                             By: Gen                                         *
+ *                             Date: 16/08/2023                                *
+ *                             Version: 1                                      *
  *+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*
- *  Uses a Teensy 2.0 in Joystick mode to convert a PS2 controller to USB.     *
+ *  Uses a Teensy 2.0 ++ in Joystick mode to convert a PS2 controller to USB.  *
  * Based on the PJRC Joystick example and Bill Porter's excellent PS2X library *
  * Hardware and software are currently TESTED. Licensed under the MIT license  *
  * , a copy of which is located in the included LICENSE file.                  *
  *                                 Enjoy!                                      *
  *-----------------------------------------------------------------------------*
- *                       https://github.com/damurdock                          *
+ *                       https://github.com/S2_USB-Teensy-                     *
  ******************************************************************************/
 
 #include <PS2X_lib.h>
@@ -22,21 +24,23 @@ boolean config = false;
 
 void setup(){
   error = controller.config_gamepad(0,1,2,3, false, false); // setup controller, config_gamepad(clock, command, attention, data, Pressures?, Rumble?); rumble and pressures currently unsupported
-    //Guitar Hero controllers should work now. I don't have one to test though.
+  Serial.begin(57600);
 }
 
 void loop(){
   if(error == 1){ // flash led if there's an error
-    digitalWrite(11,HIGH); 
+    digitalWrite(6,HIGH); 
     delay(500);
-    digitalWrite(11,LOW); 
+    digitalWrite(6,LOW); 
     delay(500);
     error = controller.config_gamepad(0,1,2,3, false, false); // Try to setup the controller again
+    Serial.println("No controller found, check wiring, see readme.txt.");
   }
   else if (!config) { // turn on the LED and get controller type if all's well
     digitalWrite(11,HIGH); 
     type = controller.readType();
     config = true;
+    Serial.println("Controller found.");
   }
   controller.read_gamepad(); //read the controller
   // testing out sending the usb packet spontaneously, should reduce lag a bit
