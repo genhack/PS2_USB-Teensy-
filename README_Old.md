@@ -1,5 +1,8 @@
 ##PS2-USB
-
+Attention to NSS
+Command to MOSI
+Data to MISO
+Clock to SCK
 ###Requirements
 To setup and use PS2-USB, you'll need:
   * A PJRC Teensy 2.0
