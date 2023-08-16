@@ -1,8 +1,8 @@
-                                                    ##Ps2_USB Teensy 2.0++ Mod. 
+                                                  ### Ps2_USB Teensy 2.0++ Mod. 
 ### Requirements 
 ```markdown
 - A PJRC Teensy 2.0++ with 3.3v Regulator
-- Arduino Ide and teensy repo. (https://www.pjrc.com/teensy/td_download.html)
+- Arduino Ide and Teensy repo. Follow:(https://www.pjrc.com/teensy/td_download.html)
 ```
 
 ### Wiring 
@@ -27,3 +27,19 @@ Controller -------> Teensy
 - Pin 8                       NC
 - Pin 9                       NC
 ```
+### Software
+
+- Cp Ps2x_lib in library folder
+- Tools -> Board -> Teensy 2++
+           Port -> Hid: xxx
+           Cpu Speed -> 8 to 16
+           Usb type -> Keyboard + mouse + joystick
+           
+- Run the PS2_USB.ino 
+
+### Note
+- No Res need.
+- Led Flashing means no controller found. 
+
+![Pict1](https://i.ibb.co/Nrszy4Q/IMG-0896.jpg)
+
